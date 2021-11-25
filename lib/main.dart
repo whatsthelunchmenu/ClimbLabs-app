@@ -1,4 +1,6 @@
+import 'package:climb_labs/app/route/app_pages.dart';
 import 'package:flutter/material.dart';
+import 'package:get/route_manager.dart';
 
 void main() {
   runApp(const ClimbLabs());
@@ -7,17 +9,15 @@ void main() {
 class ClimbLabs extends StatelessWidget {
   const ClimbLabs({Key? key}) : super(key: key);
 
-  // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'Flutter Demo',
+    return GetMaterialApp(
+      title: 'ClimbLabs',
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: Scaffold(
-        body: Container(),
-      ),
+      getPages: AppPages.pages,
+      initialRoute: '/',
     );
   }
 }
