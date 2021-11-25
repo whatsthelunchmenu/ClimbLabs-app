@@ -1,3 +1,4 @@
+import 'package:climb_labs/app/binding/init_binding.dart';
 import 'package:climb_labs/app/route/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
@@ -18,6 +19,7 @@ class ClimbLabs extends StatelessWidget {
       ),
       getPages: AppPages.pages,
       initialRoute: '/',
+      initialBinding: InitBinding(),
     );
   }
 }
