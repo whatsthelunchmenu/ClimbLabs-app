@@ -1,6 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:climb_labs/app/controller/controllers.dart';
-import 'package:climb_labs/app/ui/android/home/components/make_paint.dart';
 import 'package:climb_labs/app/ui/theme/app_colors.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
