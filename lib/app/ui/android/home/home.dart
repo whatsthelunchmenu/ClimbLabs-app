@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:climb_labs/app/controller/controllers.dart';
+import 'package:climb_labs/app/ui/android/home/components/make_paint.dart';
 import 'package:climb_labs/app/ui/theme/app_colors.dart';
 import 'package:dots_indicator/dots_indicator.dart';
 import 'package:flutter/material.dart';
@@ -21,11 +22,11 @@ class Home extends GetWidget<HomeController> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.only(top: 5),
+                  padding: const EdgeInsets.only(top: 5, bottom: 10),
                   child: Text(
                     'ClimbLabs',
                     style: GoogleFonts.stylish(
-                      fontSize: 28,
+                      fontSize: Get.size.width * 0.09,
                       fontWeight: FontWeight.w900,
                       color: titleColor,
                     ),
@@ -36,7 +37,7 @@ class Home extends GetWidget<HomeController> {
                   child: Text(
                     '여긴 어때',
                     style: GoogleFonts.jua(
-                      fontSize: 20,
+                      fontSize: Get.size.width * 0.06,
                       fontWeight: FontWeight.w500,
                     ),
                   ),
@@ -49,43 +50,58 @@ class Home extends GetWidget<HomeController> {
                         carouselController: controller.carouselController,
                         itemCount: controller.aboutDummyList.length,
                         itemBuilder: (context, itemIndex, pageIndex) {
-                          return Container(
-                            width: Get.size.width,
-                            decoration: BoxDecoration(
-                              image: DecorationImage(
-                                image: NetworkImage(
-                                    controller.aboutDummyList[itemIndex].image),
-                                fit: BoxFit.fill,
-                              ),
-                              borderRadius: BorderRadius.circular(15),
+                          return Padding(
+                            padding:
+                                const EdgeInsets.symmetric(horizontal: 8.0),
+                            child: Column(
+                              children: [
+                                SizedBox(
+                                  height: 30,
+                                  width: Get.size.width,
+                                  child: Padding(
+                                    padding: const EdgeInsets.only(top: 3.0),
+                                    child: Text(
+                                      controller.aboutDummyList[itemIndex].name,
+                                      textAlign: TextAlign.start,
+                                      style: GoogleFonts.jua(
+                                        fontSize: 18,
+                                        color: titleColor,
+                                      ),
+                                    ),
+                                  ),
+                                ),
+                                Container(
+                                  width: Get.size.width,
+                                  height: Get.size.height * 0.33,
+                                  decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(15),
+                                    image: DecorationImage(
+                                      fit: BoxFit.cover,
+                                      image: NetworkImage(controller
+                                          .aboutDummyList[itemIndex].image),
+                                    ),
+                                  ),
+                                ),
+                              ],
                             ),
                           );
                         },
                         options: CarouselOptions(
+                          autoPlay: true,
                           onPageChanged: (index, reason) {
                             controller.carouselIndex.value = index.toDouble();
                           },
                           viewportFraction: 1.0,
-                          height: 250,
+                          height: Get.size.height * 0.39,
                         ),
                       ),
                       Positioned(
-                        top: 0.0,
-                        child: Container(
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            color: Colors.white.withOpacity(0.4),
-                          ),
-                        ),
-                        height: 70,
-                        width: Get.size.width,
-                      ),
-                      Positioned(
-                        bottom: 10.0,
+                        right: 20.0,
+                        bottom: Get.size.height * 0.025,
                         child: DotsIndicator(
                           dotsCount: controller.aboutDummyList.length,
                           position: controller.carouselIndex.value,
-                          decorator: DotsDecorator(
+                          decorator: const DotsDecorator(
                             color: secondaryColor,
                             activeColor: primaryColor,
                           ),
