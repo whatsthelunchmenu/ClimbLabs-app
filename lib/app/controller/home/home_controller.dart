@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:climb_labs/app/data/dummy/about_hear.dart';
+import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:get/state_manager.dart';
 
@@ -13,6 +14,7 @@ class HomeController extends GetxController {
   void onInit() {
     super.onInit();
     carouselController = CarouselController();
+
     aboutDummyList.addAll(aboutHearDummyList);
   }
 }
