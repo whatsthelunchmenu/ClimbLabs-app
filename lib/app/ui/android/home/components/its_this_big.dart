@@ -4,7 +4,6 @@ import 'package:climb_labs/app/ui/theme/app_colors.dart';
 import 'package:climb_labs/app/ui/theme/app_text_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class ItsThisBig extends GetWidget<HomeController> {
   const ItsThisBig({
@@ -32,7 +31,7 @@ class ItsThisBig extends GetWidget<HomeController> {
                     indicatorSize: TabBarIndicatorSize.label,
                     indicatorColor: primaryColor,
                     labelColor: titleColor,
-                    labelStyle: GoogleFonts.jua(fontSize: 16),
+                    labelStyle: baseTextStyle,
                     indicatorWeight: 4,
                     unselectedLabelColor: const Color(0xFF979797),
                     tabs: const <Tab>[

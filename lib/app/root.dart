@@ -42,7 +42,7 @@ class Root extends StatelessWidget {
         duration: Duration(milliseconds: 200),
       ),
       navBarStyle:
-          NavBarStyle.style13, // Choose the nav bar style with this property.
+          NavBarStyle.style8, // Choose the nav bar style with this property.
     );
   }
 }

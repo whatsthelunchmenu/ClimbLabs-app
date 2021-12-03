@@ -9,6 +9,10 @@ final TextStyle titleTextStyle = GoogleFonts.jua(
   color: titleColor,
 );
 
+final TextStyle baseTextStyle = GoogleFonts.jua(
+  fontSize: 16,
+);
+
 final TextStyle domainTitleTextStyle = GoogleFonts.jua(
   fontSize: Get.size.width * 0.06,
   fontWeight: FontWeight.w500,
@@ -18,3 +22,8 @@ final TextStyle headerTextStyle = GoogleFonts.stylish(
     fontSize: Get.size.width * 0.09,
     fontWeight: FontWeight.w900,
     color: titleColor);
+
+final TextStyle itemSizeTextStyle = GoogleFonts.jua(
+  fontSize: 20,
+  color: Colors.black,
+);
