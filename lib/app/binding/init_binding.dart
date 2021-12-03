@@ -5,5 +5,6 @@ class InitBinding implements Bindings {
   @override
   void dependencies() {
     Get.put(HomeController(), permanent: true);
+    Get.put(SearchController(), permanent: true);
   }
 }
