@@ -11,6 +11,8 @@ class LocationItem {
 final Map<String, String> locationDummyList = {
   "서울":
       "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTAyMDhfMTEz%2FMDAxNjEyNzY3NTA4MTAx.sBDr_z3bloQmLENW7Dqo5QPHhXYYSYbUfj9LvDgpH6Ig.vmQnvwMUGbS1Rut8KjpnOr7vOh0ByXx43guebLUkef4g.JPEG.tjdrud1109%2F20210205%25A3%25DF184036.jpg&type=sc960_832",
+  "경기":
+      "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA5MjdfMTAg%2FMDAxNjMyNzE3NzQ2MjY4.WqZGM5vW1ZHoA66hIVhppXjuUzocGRifUIgs8G7BXckg.m1-p9dlykKfdwK6JXiJ79YJH1toySIV1L6wt0hc6JqAg.JPEG.skanf5325%2Foutput_2536026579.jpg&type=sc960_832",
   "인천":
       "https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMTA5MTNfMjU2%2FMDAxNjMxNTA2NDUyMDEz.a7iV5AfWO5UwCRZQvhvIDoAvh6no8j1ssqXKxC6aIz8g.xlAGYcf-nLBodH9i1AlqKWc4Aef-VCrCPWsTO_sUDykg.PNG.icouncil103%2F%25BA%25ED2.png&type=sc960_832",
   "부산":
