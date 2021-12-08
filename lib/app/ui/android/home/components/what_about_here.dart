@@ -40,7 +40,7 @@ class WhatAboutHere extends GetWidget<HomeController> {
                             child: Text(
                               controller.aboutDummyList[itemIndex].name,
                               textAlign: TextAlign.start,
-                              style: titleTextStyle,
+                              style: itemTitleTextStyle,
                             ),
                           ),
                         ),

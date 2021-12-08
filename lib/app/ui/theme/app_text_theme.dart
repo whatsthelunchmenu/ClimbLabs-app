@@ -4,13 +4,23 @@ import 'package:google_fonts/google_fonts.dart';
 
 import 'app_colors.dart';
 
-final TextStyle titleTextStyle = GoogleFonts.jua(
+final TextStyle itemTitleTextStyle = GoogleFonts.jua(
   fontSize: 18,
+  color: titleColor,
+);
+
+final TextStyle titleTextStyle = GoogleFonts.jua(
+  fontSize: 24,
   color: titleColor,
 );
 
 final TextStyle baseTextStyle = GoogleFonts.jua(
   fontSize: 16,
+);
+
+final TextStyle smallTitleColorTextStyle = GoogleFonts.jua(
+  fontSize: 13,
+  color: titleColor,
 );
 
 final TextStyle domainTitleTextStyle = GoogleFonts.jua(
