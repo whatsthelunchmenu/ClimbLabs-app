@@ -1,5 +1,7 @@
 import 'package:climb_labs/app/data/dummy/location_model.dart';
+import 'package:climb_labs/app/route/app_pages.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class LocationSearchItem extends StatelessWidget {
@@ -12,7 +14,9 @@ class LocationSearchItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return InkWell(
-      onTap: () {},
+      onTap: () {
+        Get.toNamed(Routes.SEARCH_DETAIL, arguments: item);
+      },
       child: Container(
         margin: const EdgeInsets.all(4),
         decoration: BoxDecoration(
