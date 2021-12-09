@@ -37,3 +37,8 @@ final TextStyle itemSizeTextStyle = GoogleFonts.jua(
   fontSize: 20,
   color: Colors.black,
 );
+
+final TextStyle hintTextStyle = GoogleFonts.jua(
+  fontSize: 20,
+  color: Colors.grey,
+);

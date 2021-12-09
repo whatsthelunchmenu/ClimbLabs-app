@@ -19,7 +19,6 @@ class _SearchDetailState extends State<SearchDetail> {
   final LocationItem item = Get.arguments as LocationItem;
   late List<LocationDetail>? _locationList;
   final List<String> _selectedLocationList = [];
-  final int _selectCount = 0;
 
   @override
   void initState() {
@@ -39,7 +38,13 @@ class _SearchDetailState extends State<SearchDetail> {
           style: titleTextStyle,
         ),
         leading: IconButton(
-          onPressed: () => Get.back(),
+          onPressed: () => {
+            for (LocationDetail element in _locationList!)
+              {
+                if (element.isSeleted) {element.isSeleted = false}
+              },
+            Get.back()
+          },
           icon: const Icon(Icons.arrow_back_ios),
           color: secondaryColor,
         ),
@@ -54,8 +59,8 @@ class _SearchDetailState extends State<SearchDetail> {
               children: [
                 FilterButton(
                     title: '세부지역',
-                    onTap: () => selectDetailLocationDialog(context, item,
-                        _locationList, _selectedLocationList, _selectCount)),
+                    onTap: () => selectDetailLocationDialog(
+                        context, item, _locationList, _selectedLocationList)),
                 FilterButton(title: '규모', onTap: () {}),
               ],
             )
