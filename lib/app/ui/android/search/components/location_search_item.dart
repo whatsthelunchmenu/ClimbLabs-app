@@ -23,8 +23,8 @@ class LocationSearchItem extends StatelessWidget {
           borderRadius: BorderRadius.circular(15),
           image: DecorationImage(
             fit: BoxFit.cover,
-            image: NetworkImage(
-              item.imageUrl,
+            image: AssetImage(
+              "assets/images/${item.imageUrl}",
             ),
           ),
         ),
