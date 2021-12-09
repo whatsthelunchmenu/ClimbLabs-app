@@ -1,3 +1,4 @@
+import 'package:climb_labs/app/data/model/location_detail_model.dart';
 import 'package:climb_labs/app/ui/android/search_detail/components.dart'
     show SeletedMiniIcon;
 import 'package:flutter/material.dart';
@@ -7,9 +8,13 @@ class SeletedList extends StatelessWidget {
   const SeletedList({
     Key? key,
     required this.seletedList,
+    required this.locationList,
+    required this.setState,
   }) : super(key: key);
 
   final List<String> seletedList;
+  final List<LocationDetail> locationList;
+  final Function setState;
 
   @override
   Widget build(BuildContext context) {
@@ -35,6 +40,14 @@ class SeletedList extends StatelessWidget {
                   seletedList.length,
                   (index) => SeletedMiniIcon(
                     locationName: seletedList[index],
+                    onTap: () {
+                      final isIndex = locationList.indexWhere(
+                          (element) => element.name == seletedList[index]);
+                      setState(() {
+                        seletedList.removeAt(index);
+                        locationList[isIndex].isSeleted = false;
+                      });
+                    },
                   ),
                 ),
               ),

@@ -35,21 +35,26 @@ Future<dynamic> selectDetailLocationDialog(
                       setState: setState,
                     ),
                     const SizedBox(height: 10),
-                    SeletedList(seletedList: selectedLocationList),
+                    SeletedList(
+                      seletedList: selectedLocationList,
+                      locationList: locationList,
+                      setState: setState,
+                    ),
                     const SizedBox(height: 10),
                     ClipRRect(
-                        borderRadius: BorderRadius.circular(30),
-                        child: ElevatedButton(
-                          style: ElevatedButton.styleFrom(
-                            primary: titleColor,
-                          ),
-                          onPressed: () {},
-                          child: Padding(
-                            padding: EdgeInsets.symmetric(
-                                horizontal: Get.size.width * 0.25),
-                            child: Text('확인', style: baseTextStyle),
-                          ),
-                        )),
+                      borderRadius: BorderRadius.circular(30),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          primary: titleColor,
+                        ),
+                        onPressed: () {},
+                        child: Padding(
+                          padding: EdgeInsets.symmetric(
+                              horizontal: Get.size.width * 0.25),
+                          child: Text('확인', style: baseTextStyle),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),

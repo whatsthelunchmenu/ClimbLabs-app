@@ -1,5 +1,3 @@
-import 'dart:typed_data';
-
 class AboutHear {
   AboutHear({
     required this.name,
