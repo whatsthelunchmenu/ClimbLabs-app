@@ -1,5 +1,7 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:climb_labs/app/controller/controllers.dart' show HomeController;
+import 'package:climb_labs/app/ui/android/home/components.dart'
+    show WhatAboutHearItem;
 import 'package:climb_labs/app/ui/theme/app_colors.dart';
 import 'package:climb_labs/app/ui/theme/app_text_theme.dart';
 import 'package:dots_indicator/dots_indicator.dart';
@@ -28,36 +30,9 @@ class WhatAboutHere extends GetWidget<HomeController> {
                 carouselController: controller.carouselController,
                 itemCount: controller.aboutDummyList.length,
                 itemBuilder: (context, itemIndex, pageIndex) {
-                  return Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 8.0),
-                    child: Column(
-                      children: [
-                        SizedBox(
-                          height: 30,
-                          width: Get.size.width,
-                          child: Padding(
-                            padding: const EdgeInsets.only(top: 3.0),
-                            child: Text(
-                              controller.aboutDummyList[itemIndex].name,
-                              textAlign: TextAlign.start,
-                              style: itemTitleTextStyle,
-                            ),
-                          ),
-                        ),
-                        Container(
-                          width: Get.size.width,
-                          height: Get.size.height * 0.33,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(15),
-                            image: DecorationImage(
-                              fit: BoxFit.cover,
-                              image: NetworkImage(
-                                  controller.aboutDummyList[itemIndex].image),
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
+                  return WhatAboutHearItem(
+                    name: controller.aboutDummyList[itemIndex].name,
+                    imageUrl: controller.aboutDummyList[itemIndex].image,
                   );
                 },
                 options: CarouselOptions(
