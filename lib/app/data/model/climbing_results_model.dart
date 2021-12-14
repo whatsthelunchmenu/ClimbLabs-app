@@ -1,3 +1,4 @@
+import 'package:climb_labs/app/controller/logger/logger_controller.dart';
 import 'package:climb_labs/app/data/model/center_model.dart';
 
 class ClimbingResults {
@@ -8,31 +9,31 @@ class ClimbingResults {
     this.smallSize = const [],
   });
 
-  final List<CenterModel> whatAbuoutHere;
-  final List<CenterModel> bigSize;
-  final List<CenterModel> middleSize;
-  final List<CenterModel> smallSize;
+  List<CenterModel> whatAbuoutHere;
+  List<CenterModel> bigSize;
+  List<CenterModel> middleSize;
+  List<CenterModel> smallSize;
 
-  factory ClimbingResults.fromJson(dynamic response) {
-    if (response is Map<String, dynamic>) {
-      return ClimbingResults(
-        bigSize: (response['bigs'] as List)
-            .map((e) => CenterModel.fromJson(e))
-            .toList(),
-        middleSize: (response['middles'] as List)
-            .map((e) => CenterModel.fromJson(e))
-            .toList(),
-      );
-    } else if (response is List<Map<String, dynamic>>) {
-      return ClimbingResults(
-        whatAbuoutHere: List<CenterModel>.from(
-          response.map(
-            (data) => CenterModel.fromJson(data),
-          ),
+  factory ClimbingResults.fromMapJson(Map<String, dynamic> response) {
+    LoggerController.to
+        .debug('[ClimbingResult] response dataType is Map<String, dynamic>');
+
+    return ClimbingResults(
+      bigSize: response['bigs'].map((e) => CenterModel.fromJson(e)).toList(),
+      middleSize:
+          response['middles'].map((e) => CenterModel.fromJson(e)).toList(),
+    );
+  }
+
+  factory ClimbingResults.fromListJson(List<dynamic> response) {
+    LoggerController.to.debug(
+        '[ClimbingResult] response dataType is List<Map<String, dynamic>>');
+    return ClimbingResults(
+      whatAbuoutHere: List<CenterModel>.from(
+        response.map(
+          (data) => CenterModel.fromJson(data),
         ),
-      );
-    } else {
-      return ClimbingResults();
-    }
+      ),
+    );
   }
 }

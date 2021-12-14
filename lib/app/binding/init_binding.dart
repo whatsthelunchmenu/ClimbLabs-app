@@ -1,4 +1,5 @@
 import 'package:climb_labs/app/controller/controllers.dart';
+import 'package:climb_labs/app/controller/logger/logger_controller.dart';
 import 'package:get/instance_manager.dart';
 
 class InitBinding implements Bindings {
@@ -6,5 +7,6 @@ class InitBinding implements Bindings {
   void dependencies() {
     Get.put(HomeController(), permanent: true);
     Get.put(SearchController(), permanent: true);
+    Get.put(LoggerController(), permanent: true);
   }
 }

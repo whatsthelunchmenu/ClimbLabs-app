@@ -40,14 +40,14 @@ class CenterModel {
 
   factory CenterModel.fromJson(Map<String, dynamic> json) => CenterModel(
         id: json["id"],
-        climbingTitle: json["climbingTitle"],
+        climbingTitle: json["climbingTitle"] ?? "",
         level: json["level"],
-        city: json["city"],
-        zipCode: json["zipCode"],
-        street: json["street"],
-        detailStreet: json["detailStreet"],
+        city: json["city"] ?? "",
+        zipCode: json["zipCode"] ?? "",
+        street: json["street"] ?? "",
+        detailStreet: json["detailStreet"] ?? "",
         scale: json["scale"],
-        scaleType: json["scaleType"],
+        scaleType: json["scaleType"] ?? "",
         feature: json["feature"] ?? "",
         advantages: json["advantages"] == null
             ? [""]

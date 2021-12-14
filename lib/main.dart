@@ -3,7 +3,8 @@ import 'package:climb_labs/app/route/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
   runApp(const ClimbLabs());
 }
 

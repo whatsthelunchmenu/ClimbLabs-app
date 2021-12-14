@@ -1,3 +1,4 @@
+import 'package:climb_labs/app/controller/home/home_controller.dart';
 import 'package:climb_labs/app/ui/android/home/components/header.dart';
 import 'package:climb_labs/app/ui/android/home/components/its_this_big.dart';
 import 'package:climb_labs/app/ui/android/home/components/what_about_here.dart';
