@@ -11,6 +11,7 @@ class Detail extends StatelessWidget {
   Widget build(BuildContext context) {
     final CenterModel centerItem = Get.arguments as CenterModel;
 
+    var baseTextStyle2 = baseTextStyle;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -30,9 +31,117 @@ class Detail extends StatelessWidget {
         elevation: 0.0,
         backgroundColor: primaryColor,
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [],
+      body: Padding(
+        padding: const EdgeInsets.only(left: 10, right: 10, top: 5),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Hero(
+                tag: "center",
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: SizedBox(
+                    width: double.infinity,
+                    height: Get.size.height * 0.35,
+                    child: ListView(
+                      scrollDirection: Axis.horizontal,
+                      children: List.generate(
+                        centerItem.images.length,
+                        (index) => Image.network(
+                          centerItem.images[index],
+                          fit: BoxFit.cover,
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ),
+              SizedBox(height: 10),
+              Row(
+                children: [
+                  Text('난이도', style: detailBaseTextStyle),
+                  const SizedBox(width: 10),
+                  ...List.generate(
+                    centerItem.level,
+                    (index) => Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 2),
+                      child: Image.asset('assets/icons/star.png'),
+                    ),
+                  ),
+                  ...List.generate(
+                      5 - centerItem.level,
+                      (index) => Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 2),
+                            child: Image.asset('assets/icons/star_border.png'),
+                          ))
+                ],
+              ),
+              SizedBox(height: 15),
+              Row(
+                children: [
+                  Text("규모", style: detailBaseTextStyle),
+                  SizedBox(width: 20),
+                  Text("${centerItem.scale}㎡", style: detailBaseTextStyle)
+                ],
+              ),
+              SizedBox(height: 15),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("장점", style: detailBaseTextStyle),
+                  SizedBox(width: 20),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: List.generate(
+                      centerItem.advantages.length,
+                      (index) => Text(
+                        centerItem.advantages[index],
+                        style: baseTextStyle,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(height: 15),
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text("단점", style: detailBaseTextStyle),
+                  SizedBox(width: 20),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: List.generate(
+                      centerItem.disAdvantages.length,
+                      (index) => Text(
+                        centerItem.disAdvantages[index],
+                        style: baseTextStyle,
+                      ),
+                    ),
+                  )
+                ],
+              ),
+              SizedBox(height: 15),
+              Row(
+                children: [
+                  Text("특징", style: detailBaseTextStyle),
+                  SizedBox(width: 20),
+                  Text(centerItem.feature, style: baseTextStyle),
+                ],
+              ),
+              SizedBox(height: 15),
+              Row(
+                children: [
+                  Text("주소", style: detailBaseTextStyle),
+                  SizedBox(width: 20),
+                  Text(
+                    "${centerItem.city} ${centerItem.street} ${centerItem.detailStreet}",
+                    style: baseTextStyle,
+                  )
+                ],
+              ),
+            ],
+          ),
         ),
       ),
     );

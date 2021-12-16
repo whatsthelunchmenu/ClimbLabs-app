@@ -19,7 +19,6 @@ class Home extends StatelessWidget {
               children: [
                 const TitleText(),
                 const WhatAboutHere(),
-                const SizedBox(height: 10),
                 const ItsThisBig()
               ],
             ),

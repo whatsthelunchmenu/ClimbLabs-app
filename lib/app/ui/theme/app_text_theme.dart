@@ -9,6 +9,11 @@ final TextStyle itemTitleTextStyle = GoogleFonts.jua(
   color: titleColor,
 );
 
+final TextStyle detailBaseTextStyle = GoogleFonts.jua(
+  color: Colors.black,
+  fontSize: 20,
+);
+
 final TextStyle titleTextStyle = GoogleFonts.jua(
   fontSize: 24,
   color: titleColor,

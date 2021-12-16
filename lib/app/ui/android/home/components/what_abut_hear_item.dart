@@ -14,39 +14,42 @@ class WhatAboutHearItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: Column(
-        children: [
-          SizedBox(
-            height: 30,
-            width: Get.size.width,
-            child: Padding(
-              padding: const EdgeInsets.only(top: 3.0),
-              child: Text(
-                item.title,
-                textAlign: TextAlign.start,
-                style: itemTitleTextStyle,
-              ),
-            ),
-          ),
-          GestureDetector(
-            child: Container(
+    return Hero(
+      tag: "center",
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 8.0),
+        child: Column(
+          children: [
+            SizedBox(
+              height: 30,
               width: Get.size.width,
-              height: Get.size.height * 0.33,
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15),
-                image: DecorationImage(
-                  fit: BoxFit.cover,
-                  image: NetworkImage(item.thumbNailUrl),
+              child: Padding(
+                padding: const EdgeInsets.only(top: 3.0),
+                child: Text(
+                  item.title,
+                  textAlign: TextAlign.start,
+                  style: itemTitleTextStyle,
                 ),
               ),
             ),
-            onTap: () {
-              Get.toNamed(Routes.DETAIL, arguments: item);
-            },
-          ),
-        ],
+            GestureDetector(
+              child: Container(
+                width: Get.size.width,
+                height: Get.size.height * 0.3,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(15),
+                  image: DecorationImage(
+                    fit: BoxFit.cover,
+                    image: NetworkImage(item.thumbNailUrl),
+                  ),
+                ),
+              ),
+              onTap: () {
+                Get.toNamed(Routes.DETAIL, arguments: item);
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
