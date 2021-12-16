@@ -33,7 +33,7 @@ class HomeRepository {
       final Response response =
           await _dio.get('/posts/random', queryParameters: {
         'limit': limit,
-        'scaleType': scaleType,
+        'scaleType': scaleType.join(","),
       });
 
       if (response.statusCode == 200) {

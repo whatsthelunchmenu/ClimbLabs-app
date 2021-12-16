@@ -11,7 +11,7 @@ class HomeController extends GetxController {
   late HomeRepository repository;
   final RxList<AboutHear> aboutDummyList = <AboutHear>[].obs;
   final RxDouble carouselIndex = 0.0.obs;
-  final Rx<ClimbingResults> climbingResults = ClimbingResults().obs;
+  final Rx<ClimbingResults> _climbingResults = ClimbingResults().obs;
 
   @override
   void onInit() {
@@ -22,11 +22,13 @@ class HomeController extends GetxController {
     aboutDummyList.addAll(aboutHearDummyList);
   }
 
+  ClimbingResults get climbingResults => _climbingResults.value;
+
   getWhatAboutHere({int limit = 4}) async {
     final ClimbingResults? result = await repository.getWhatAboutHere(limit);
 
     if (result != null && result.whatAbuoutHere.isNotEmpty) {
-      climbingResults.update((climbing) {
+      _climbingResults.update((climbing) {
         climbing!.whatAbuoutHere = result.whatAbuoutHere;
       });
     }
@@ -41,7 +43,7 @@ class HomeController extends GetxController {
 
     if (result != null &&
         (result.bigSize.isNotEmpty && result.middleSize.isNotEmpty)) {
-      climbingResults.update((climbing) {
+      _climbingResults.update((climbing) {
         climbing!.bigSize = result.bigSize;
         climbing.middleSize = result.middleSize;
       });

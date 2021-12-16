@@ -74,12 +74,29 @@ void main() {
       ],
       "smalls": null
     };
-
-    final testList =
-        List<CenterModel>.from(data['bigs'].map((e) => CenterModel.fromJson(e)))
-            .toList();
-    for (var i in testList) {
-      print(i.climbingTitle);
-    }
+    final List<Map<String, dynamic>> dataTwo = [
+      {"asd": "asd"}
+    ];
+    TestClass.fromTest(data);
+    TestClass.fromTest(dataTwo);
   });
+}
+
+class TestClass<T> {
+  TestClass({this.name = ""});
+  String name;
+
+  factory TestClass.fromTest(T value) {
+    switch (T) {
+      case Map<String, dynamic>:
+        print("Map");
+        break;
+      case List<Map<String, dynamic>>:
+        print("List");
+        break;
+      default:
+        print("default");
+    }
+    return TestClass();
+  }
 }
