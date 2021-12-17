@@ -1,8 +1,8 @@
 import 'package:dio/dio.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 
 class BaseClient {
   static final BaseOptions baseOptions = BaseOptions(
-    baseUrl:
-        "http://ec2-54-180-17-248.ap-northeast-2.compute.amazonaws.com:8080",
+    baseUrl: dotenv.env['API_BASE_URL'].toString(),
   );
 }

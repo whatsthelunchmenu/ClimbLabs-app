@@ -1,8 +1,11 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.climb_labs">
+    package="com.climb_labs">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="climb_labs"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+          android:value="AIzaSyBw3Uf-1Kyv-uPZvceFYQAQQ8bvG9CMCLo"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
@@ -37,5 +40,5 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
-    </application>
+    </application>    
 </manifest>

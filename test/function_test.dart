@@ -1,4 +1,3 @@
-import 'package:climb_labs/app/data/model/center_model.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 void main() {

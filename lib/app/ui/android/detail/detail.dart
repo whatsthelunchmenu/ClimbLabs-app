@@ -1,4 +1,7 @@
+import 'package:climb_labs/app/controller/detail/detail_controller.dart';
 import 'package:climb_labs/app/data/model/center_model.dart';
+import 'package:climb_labs/app/data/model/geocode_model.dart';
+import 'package:climb_labs/app/ui/android/detail/components/google_maps.dart';
 import 'package:climb_labs/app/ui/theme/app_colors.dart';
 import 'package:climb_labs/app/ui/theme/app_text_theme.dart';
 import 'package:flutter/material.dart';
@@ -10,8 +13,8 @@ class Detail extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final CenterModel centerItem = Get.arguments as CenterModel;
+    Get.put(DetailController());
 
-    var baseTextStyle2 = baseTextStyle;
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
@@ -37,21 +40,18 @@ class Detail extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Hero(
-                tag: "center",
-                child: ClipRRect(
-                  borderRadius: BorderRadius.circular(10),
-                  child: SizedBox(
-                    width: double.infinity,
-                    height: Get.size.height * 0.35,
-                    child: ListView(
-                      scrollDirection: Axis.horizontal,
-                      children: List.generate(
-                        centerItem.images.length,
-                        (index) => Image.network(
-                          centerItem.images[index],
-                          fit: BoxFit.cover,
-                        ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(10),
+                child: SizedBox(
+                  width: double.infinity,
+                  height: Get.size.height * 0.35,
+                  child: ListView(
+                    scrollDirection: Axis.horizontal,
+                    children: List.generate(
+                      centerItem.images.length,
+                      (index) => Image.network(
+                        centerItem.images[index],
+                        fit: BoxFit.cover,
                       ),
                     ),
                   ),
@@ -140,6 +140,7 @@ class Detail extends StatelessWidget {
                   )
                 ],
               ),
+              GoogleMaps(item: centerItem),
             ],
           ),
         ),

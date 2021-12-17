@@ -4,7 +4,6 @@ import 'package:climb_labs/app/ui/android/search_detail/components.dart'
     show Header, SeletedList, LocationList;
 import 'package:climb_labs/app/ui/theme/app_colors.dart';
 import 'package:climb_labs/app/ui/theme/app_text_theme.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

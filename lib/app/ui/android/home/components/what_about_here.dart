@@ -61,7 +61,7 @@ class WhatAboutHere extends GetWidget<HomeController> {
                     )
                   ],
                 )
-              : Container(
+              : SizedBox(
                   height: Get.size.height * 0.45,
                   child: const Center(
                     child: CircularProgressIndicator(),
