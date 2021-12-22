@@ -1,7 +1,8 @@
-import 'package:climb_labs/app/controller/detail/detail_controller.dart';
+import 'package:climb_labs/app/controller/controllers.dart'
+    show DetailController;
 import 'package:climb_labs/app/data/model/center_model.dart';
-import 'package:climb_labs/app/data/model/geocode_model.dart';
-import 'package:climb_labs/app/ui/android/detail/components/google_maps.dart';
+import 'package:climb_labs/app/ui/android/detail/components.dart'
+    show GoogleMaps, DescriptionBox;
 import 'package:climb_labs/app/ui/theme/app_colors.dart';
 import 'package:climb_labs/app/ui/theme/app_text_theme.dart';
 import 'package:flutter/material.dart';
@@ -35,7 +36,7 @@ class Detail extends StatelessWidget {
         backgroundColor: primaryColor,
       ),
       body: Padding(
-        padding: const EdgeInsets.only(left: 10, right: 10, top: 5),
+        padding: const EdgeInsets.only(left: 15, right: 15, top: 5),
         child: SingleChildScrollView(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -57,10 +58,10 @@ class Detail extends StatelessWidget {
                   ),
                 ),
               ),
-              SizedBox(height: 10),
+              const SizedBox(height: 10),
               Row(
                 children: [
-                  Text('난이도', style: detailBaseTextStyle),
+                  Text('난이도', style: itemTitleTextStyle),
                   const SizedBox(width: 10),
                   ...List.generate(
                     centerItem.level,
@@ -77,21 +78,26 @@ class Detail extends StatelessWidget {
                           ))
                 ],
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Row(
                 children: [
-                  Text("규모", style: detailBaseTextStyle),
-                  SizedBox(width: 20),
-                  Text("${centerItem.scale}㎡", style: detailBaseTextStyle)
+                  Text("규모", style: itemTitleTextStyle),
+                  const SizedBox(width: 20),
+                  DescriptionBox(
+                      child: Text(
+                    "${centerItem.scale}㎡",
+                    style: baseTextStyle,
+                  ))
                 ],
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("장점", style: detailBaseTextStyle),
-                  SizedBox(width: 20),
-                  Column(
+                  Text("장점", style: itemTitleTextStyle),
+                  const SizedBox(width: 20),
+                  DescriptionBox(
+                      child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: List.generate(
                       centerItem.advantages.length,
@@ -100,16 +106,17 @@ class Detail extends StatelessWidget {
                         style: baseTextStyle,
                       ),
                     ),
-                  )
+                  ))
                 ],
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Row(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text("단점", style: detailBaseTextStyle),
-                  SizedBox(width: 20),
-                  Column(
+                  Text("단점", style: itemTitleTextStyle),
+                  const SizedBox(width: 20),
+                  DescriptionBox(
+                      child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: List.generate(
                       centerItem.disAdvantages.length,
@@ -118,28 +125,31 @@ class Detail extends StatelessWidget {
                         style: baseTextStyle,
                       ),
                     ),
-                  )
+                  )),
                 ],
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Row(
                 children: [
-                  Text("특징", style: detailBaseTextStyle),
-                  SizedBox(width: 20),
-                  Text(centerItem.feature, style: baseTextStyle),
+                  Text("특징", style: itemTitleTextStyle),
+                  const SizedBox(width: 20),
+                  DescriptionBox(
+                      child: Text(centerItem.feature, style: baseTextStyle)),
                 ],
               ),
-              SizedBox(height: 15),
+              const SizedBox(height: 15),
               Row(
                 children: [
-                  Text("주소", style: detailBaseTextStyle),
-                  SizedBox(width: 20),
-                  Text(
+                  Text("주소", style: itemTitleTextStyle),
+                  const SizedBox(width: 20),
+                  DescriptionBox(
+                      child: Text(
                     "${centerItem.city} ${centerItem.street} ${centerItem.detailStreet}",
                     style: baseTextStyle,
-                  )
+                  )),
                 ],
               ),
+              const SizedBox(height: 10),
               GoogleMaps(item: centerItem),
             ],
           ),
