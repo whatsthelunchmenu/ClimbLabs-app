@@ -30,7 +30,7 @@ class GoogleMaps extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    DetailController.to.getGeocode("${item.city} ${item.street}");
+    DetailController.to.getGeocode(item.street);
     return Obx(
       () => DetailController.to.geocodeResult.addresses.isNotEmpty
           ? Container(
