@@ -5,7 +5,7 @@
         android:label="climb_labs"
         android:icon="@mipmap/ic_launcher">
         <meta-data android:name="com.google.android.geo.API_KEY"
-          android:value="AIzaSyBw3Uf-1Kyv-uPZvceFYQAQQ8bvG9CMCLo"/>
+          android:value="${googleMapKey}"/>
         <activity
             android:name=".MainActivity"
             android:launchMode="singleTop"
