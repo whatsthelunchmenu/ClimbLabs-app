@@ -23,40 +23,50 @@ class WhatAboutHere extends GetWidget<HomeController> {
           child: Text('여긴 어때', style: domainTitleTextStyle),
         ),
         Obx(
-          () => Stack(
-            alignment: Alignment.center,
-            children: [
-              CarouselSlider.builder(
-                carouselController: controller.carouselController,
-                itemCount: controller.climbingResults.whatAbuoutHere.length,
-                itemBuilder: (context, itemIndex, pageIndex) {
-                  return WhatAboutHearItem(
-                    item: controller.climbingResults.whatAbuoutHere[itemIndex],
-                  );
-                },
-                options: CarouselOptions(
-                  autoPlay: true,
-                  onPageChanged: (index, reason) {
-                    controller.carouselIndex.value = index.toDouble();
-                  },
-                  viewportFraction: 1.0,
-                  height: Get.size.height * 0.39,
-                ),
-              ),
-              Positioned(
-                right: 20.0,
-                bottom: Get.size.height * 0.025,
-                child: DotsIndicator(
-                  dotsCount: controller.climbingResults.whatAbuoutHere.length,
-                  position: controller.carouselIndex.value,
-                  decorator: const DotsDecorator(
-                    color: secondaryColor,
-                    activeColor: primaryColor,
+          () => controller.climbingResults.whatAbuoutHere.isNotEmpty
+              ? Stack(
+                  alignment: Alignment.center,
+                  children: [
+                    CarouselSlider.builder(
+                      carouselController: controller.carouselController,
+                      itemCount:
+                          controller.climbingResults.whatAbuoutHere.length,
+                      itemBuilder: (context, itemIndex, pageIndex) {
+                        return WhatAboutHearItem(
+                          item: controller
+                              .climbingResults.whatAbuoutHere[itemIndex],
+                        );
+                      },
+                      options: CarouselOptions(
+                        autoPlay: true,
+                        onPageChanged: (index, reason) {
+                          controller.carouselIndex.value = index.toDouble();
+                        },
+                        viewportFraction: 1.0,
+                        height: Get.size.height * 0.45,
+                      ),
+                    ),
+                    Positioned(
+                      right: 20.0,
+                      bottom: Get.size.height * 0.12,
+                      child: DotsIndicator(
+                        dotsCount:
+                            controller.climbingResults.whatAbuoutHere.length,
+                        position: controller.carouselIndex.value,
+                        decorator: const DotsDecorator(
+                          color: secondaryColor,
+                          activeColor: primaryColor,
+                        ),
+                      ),
+                    )
+                  ],
+                )
+              : SizedBox(
+                  height: Get.size.height * 0.45,
+                  child: const Center(
+                    child: CircularProgressIndicator(),
                   ),
                 ),
-              )
-            ],
-          ),
         ),
       ],
     );

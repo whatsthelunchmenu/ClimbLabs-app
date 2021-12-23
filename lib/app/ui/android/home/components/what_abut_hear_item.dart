@@ -33,7 +33,7 @@ class WhatAboutHearItem extends StatelessWidget {
           GestureDetector(
             child: Container(
               width: Get.size.width,
-              height: Get.size.height * 0.33,
+              height: Get.size.height * 0.3,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(15),
                 image: DecorationImage(

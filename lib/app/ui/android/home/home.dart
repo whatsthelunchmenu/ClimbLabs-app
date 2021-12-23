@@ -1,4 +1,3 @@
-import 'package:climb_labs/app/controller/home/home_controller.dart';
 import 'package:climb_labs/app/ui/android/home/components/header.dart';
 import 'package:climb_labs/app/ui/android/home/components/its_this_big.dart';
 import 'package:climb_labs/app/ui/android/home/components/what_about_here.dart';
@@ -16,11 +15,10 @@ class Home extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const TitleText(),
-                const WhatAboutHere(),
-                const SizedBox(height: 10),
-                const ItsThisBig()
+              children: const <Widget>[
+                TitleText(),
+                WhatAboutHere(),
+                ItsThisBig()
               ],
             ),
           ),

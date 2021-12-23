@@ -1,6 +1,5 @@
 import 'package:climb_labs/app/ui/android/search/components.dart'
     show LocationGridView, SearchAppbar;
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class Search extends StatelessWidget {

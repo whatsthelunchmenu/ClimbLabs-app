@@ -4,6 +4,7 @@ import 'package:climb_labs/app/data/dummy/about_hear.dart';
 import 'package:climb_labs/app/data/model/climbing_results_model.dart';
 import 'package:climb_labs/app/data/repository/home/home_repository.dart';
 import 'package:get/get.dart';
+import 'package:permission_handler/permission_handler.dart';
 
 class HomeController extends GetxController {
   static HomeController get to => Get.find();
@@ -19,10 +20,21 @@ class HomeController extends GetxController {
     repository = HomeRepository();
     carouselController = CarouselController();
     getWhatAboutHere();
+    setPermission();
     aboutDummyList.addAll(aboutHearDummyList);
   }
 
   ClimbingResults get climbingResults => _climbingResults.value;
+
+  setPermission() async {
+    var status = await Permission.location.status;
+
+    if (status.isDenied) {
+      await [
+        Permission.location,
+      ].request();
+    }
+  }
 
   getWhatAboutHere({int limit = 4}) async {
     final ClimbingResults? result = await repository.getWhatAboutHere(limit);

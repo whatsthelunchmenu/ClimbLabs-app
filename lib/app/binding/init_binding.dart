@@ -1,5 +1,4 @@
 import 'package:climb_labs/app/controller/controllers.dart';
-import 'package:climb_labs/app/controller/logger/logger_controller.dart';
 import 'package:get/instance_manager.dart';
 
 class InitBinding implements Bindings {

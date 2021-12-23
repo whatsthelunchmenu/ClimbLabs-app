@@ -1,4 +1,4 @@
-package com.example.climb_labs
+package com.climb_labs
 
 import io.flutter.embedding.android.FlutterActivity
 

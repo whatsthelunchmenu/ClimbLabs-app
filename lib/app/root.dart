@@ -1,5 +1,4 @@
 import 'package:climb_labs/app/ui/android/screens.dart';
-import 'package:climb_labs/app/ui/android/search/search.dart';
 import 'package:climb_labs/app/ui/theme/app_colors.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
