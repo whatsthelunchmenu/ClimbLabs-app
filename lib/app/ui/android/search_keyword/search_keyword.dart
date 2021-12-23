@@ -1,14 +1,17 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:climb_labs/app/controller/search/search_controller.dart';
 import 'package:climb_labs/app/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-class SearchKeyword extends StatelessWidget {
+class SearchKeyword extends GetWidget<SearchController> {
   const SearchKeyword({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final String keyword = Get.arguments as String;
+    controller.keywordSearchAddListner(keyword);
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -26,9 +29,10 @@ class SearchKeyword extends StatelessWidget {
         backgroundColor: primaryColor,
       ),
       body: ListView.builder(
+        controller: controller.keywordScrollController,
         itemExtent: Get.size.height * 0.2,
         shrinkWrap: true,
-        itemCount: 10,
+        itemCount: controller.climbingSearchResult.searchResults.length,
         itemBuilder: (context, index) {
           return Container(
             margin: const EdgeInsets.only(top: 10),

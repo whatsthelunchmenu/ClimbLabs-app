@@ -1,4 +1,4 @@
-import 'package:climb_labs/app/controller/search_keyword/search_keyword_controller.dart';
+import 'package:climb_labs/app/controller/search/search_controller.dart';
 import 'package:climb_labs/app/route/app_pages.dart';
 import 'package:climb_labs/app/ui/theme/app_colors.dart';
 import 'package:climb_labs/app/ui/theme/app_text_theme.dart';
@@ -13,8 +13,7 @@ class SearchAppbar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final SearchKeywordController controller =
-        Get.put(SearchKeywordController());
+    final SearchController controller = Get.put(SearchController());
 
     return SliverAppBar(
       backgroundColor: Theme.of(context).scaffoldBackgroundColor,
