@@ -1,6 +1,7 @@
 import 'package:carousel_slider/carousel_controller.dart';
 import 'package:climb_labs/app/data/model/geocode_model.dart';
-import 'package:climb_labs/app/data/repository/detail/detail_repository.dart';
+import 'package:climb_labs/app/data/repository/repositories.dart'
+    show DetailRepository;
 import 'package:get/get.dart';
 
 class DetailController extends GetxController {

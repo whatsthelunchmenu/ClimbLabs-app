@@ -1,8 +1,7 @@
 import 'package:carousel_slider/carousel_controller.dart';
-import 'package:carousel_slider/carousel_slider.dart';
-import 'package:climb_labs/app/data/dummy/about_hear.dart';
 import 'package:climb_labs/app/data/model/climbing_results_model.dart';
-import 'package:climb_labs/app/data/repository/home/home_repository.dart';
+import 'package:climb_labs/app/data/repository/repositories.dart'
+    show HomeRepository;
 import 'package:get/get.dart';
 import 'package:permission_handler/permission_handler.dart';
 
@@ -10,7 +9,6 @@ class HomeController extends GetxController {
   static HomeController get to => Get.find();
   late CarouselController carouselController;
   late HomeRepository repository;
-  final RxList<AboutHear> aboutDummyList = <AboutHear>[].obs;
   final RxDouble carouselIndex = 0.0.obs;
   final Rx<ClimbingResults> _climbingResults = ClimbingResults().obs;
 
@@ -20,8 +18,8 @@ class HomeController extends GetxController {
     repository = HomeRepository();
     carouselController = CarouselController();
     getWhatAboutHere();
+    getItsThisBig();
     setPermission();
-    aboutDummyList.addAll(aboutHearDummyList);
   }
 
   ClimbingResults get climbingResults => _climbingResults.value;
