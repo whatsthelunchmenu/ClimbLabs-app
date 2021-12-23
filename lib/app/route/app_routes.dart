@@ -8,4 +8,5 @@ abstract class Routes {
   static const DETAIL = '/detail';
   static const SEARCH = '/search';
   static const SEARCH_DETAIL = '/search/detail';
+  static const SEARCH_KEYWORD = '/search_keyword';
 }
