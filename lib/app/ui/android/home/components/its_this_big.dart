@@ -45,22 +45,26 @@ class ItsThisBig extends GetWidget<HomeController> {
                   height: 300,
                   child: Obx(
                     () => TabBarView(
+                      physics: const NeverScrollableScrollPhysics(),
                       children: [
                         ListView.builder(
-                          itemCount: controller.aboutDummyList.length,
+                          itemCount:
+                              controller.climbingResults.middleSize.length,
                           scrollDirection: Axis.horizontal,
                           itemBuilder: (context, index) {
                             return ItsThisBigItem(
-                                item: controller.aboutDummyList[index]);
+                                item: controller
+                                    .climbingResults.middleSize[index]);
                           },
                         ),
                         ListView.builder(
-                          itemCount: controller.aboutDummyList.length,
+                          itemCount: controller.climbingResults.bigSize.length,
                           scrollDirection: Axis.horizontal,
                           shrinkWrap: true,
                           itemBuilder: (context, index) {
                             return ItsThisBigItem(
-                                item: controller.aboutDummyList[index]);
+                                item:
+                                    controller.climbingResults.bigSize[index]);
                           },
                         ),
                       ],

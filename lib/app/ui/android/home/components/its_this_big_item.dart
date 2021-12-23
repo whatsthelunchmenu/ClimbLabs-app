@@ -1,5 +1,7 @@
 import 'package:climb_labs/app/controller/controllers.dart' show HomeController;
 import 'package:climb_labs/app/data/dummy/about_hear.dart';
+import 'package:climb_labs/app/data/model/center_model.dart';
+import 'package:climb_labs/app/route/app_pages.dart';
 import 'package:climb_labs/app/ui/theme/app_text_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -10,7 +12,7 @@ class ItsThisBigItem extends GetWidget<HomeController> {
     Key? key,
   }) : super(key: key);
 
-  final AboutHear item;
+  final CenterModel item;
 
   @override
   Widget build(BuildContext context) {
@@ -21,8 +23,19 @@ class ItsThisBigItem extends GetWidget<HomeController> {
           height: Get.size.height * 0.5,
           width: Get.size.width * 0.3,
           child: Image.network(
-            item.image,
+            item.thumbNailUrl,
             fit: BoxFit.cover,
+            loadingBuilder: (context, child, loadingProgress) {
+              if (loadingProgress == null) return child;
+              return Center(
+                child: CircularProgressIndicator(
+                  value: loadingProgress.expectedTotalBytes != null
+                      ? loadingProgress.cumulativeBytesLoaded /
+                          loadingProgress.expectedTotalBytes!
+                      : null,
+                ),
+              );
+            },
           ),
         ),
         Positioned(
@@ -40,13 +53,15 @@ class ItsThisBigItem extends GetWidget<HomeController> {
             ),
             child: Center(
                 child: Text(
-              '${item.size}㎡',
+              '${item.scale}㎡',
               style: itemSizeTextStyle,
             )),
           ),
         )
       ]),
-      onTap: () {},
+      onTap: () {
+        Get.toNamed(Routes.DETAIL, arguments: item);
+      },
     );
   }
 }

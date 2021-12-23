@@ -19,9 +19,13 @@ class ClimbingResults {
         .debug('[ClimbingResult] response dataType is Map<String, dynamic>');
 
     return ClimbingResults(
-      bigSize: response['bigs'].map((e) => CenterModel.fromJson(e)).toList(),
-      middleSize:
-          response['middles'].map((e) => CenterModel.fromJson(e)).toList(),
+      // response['bigs' or 'middles'] => List<Map<dynamic>>
+      bigSize: List.from(response['bigs'])
+          .map((e) => CenterModel.fromJson(e))
+          .toList(),
+      middleSize: List.from(response['middles'])
+          .map((e) => CenterModel.fromJson(e))
+          .toList(),
     );
   }
 

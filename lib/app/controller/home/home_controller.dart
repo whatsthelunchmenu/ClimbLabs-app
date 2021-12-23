@@ -20,6 +20,7 @@ class HomeController extends GetxController {
     repository = HomeRepository();
     carouselController = CarouselController();
     getWhatAboutHere();
+    getItsThisBig();
     setPermission();
     aboutDummyList.addAll(aboutHearDummyList);
   }
