@@ -11,6 +11,6 @@ class AppPages {
     GetPage(name: Routes.HOME, page: () => const Home()),
     GetPage(name: Routes.DETAIL, page: () => const Detail()),
     GetPage(name: Routes.SEARCH, page: () => const Search()),
-    GetPage(name: Routes.SEARCH_DETAIL, page: () => SearchDetail()),
+    GetPage(name: Routes.SEARCH_DETAIL, page: () => const SearchDetail()),
   ];
 }

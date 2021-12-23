@@ -15,10 +15,10 @@ class Home extends StatelessWidget {
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                const TitleText(),
-                const WhatAboutHere(),
-                const ItsThisBig()
+              children: const <Widget>[
+                TitleText(),
+                WhatAboutHere(),
+                ItsThisBig()
               ],
             ),
           ),

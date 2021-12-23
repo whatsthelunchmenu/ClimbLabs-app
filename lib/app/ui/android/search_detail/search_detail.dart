@@ -9,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SearchDetail extends StatefulWidget {
-  SearchDetail({Key? key}) : super(key: key);
+  const SearchDetail({Key? key}) : super(key: key);
 
   @override
   State<SearchDetail> createState() => _SearchDetailState();

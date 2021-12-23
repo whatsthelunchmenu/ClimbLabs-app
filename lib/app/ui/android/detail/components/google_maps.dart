@@ -13,7 +13,7 @@ class GoogleMaps extends StatelessWidget {
   final Completer<GoogleMapController> _controller = Completer();
 
   Set<Marker> _createMarker(LatLng position, String title) {
-    return <Marker>[
+    return <Marker>{
       Marker(
         draggable: true,
         markerId: const MarkerId("marker_1"),
@@ -25,7 +25,7 @@ class GoogleMaps extends StatelessWidget {
           title: title,
         ),
       ),
-    ].toSet();
+    };
   }
 
   @override

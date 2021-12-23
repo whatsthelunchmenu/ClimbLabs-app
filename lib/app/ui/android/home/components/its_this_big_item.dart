@@ -5,12 +5,12 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ItsThisBigItem extends GetWidget<HomeController> {
-  ItsThisBigItem({
+  const ItsThisBigItem({
     required this.item,
     Key? key,
   }) : super(key: key);
 
-  AboutHear item;
+  final AboutHear item;
 
   @override
   Widget build(BuildContext context) {
