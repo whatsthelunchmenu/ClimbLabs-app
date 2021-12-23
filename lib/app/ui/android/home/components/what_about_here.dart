@@ -28,11 +28,10 @@ class WhatAboutHere extends GetWidget<HomeController> {
             children: [
               CarouselSlider.builder(
                 carouselController: controller.carouselController,
-                itemCount: controller.aboutDummyList.length,
+                itemCount: controller.climbingResults.whatAbuoutHere.length,
                 itemBuilder: (context, itemIndex, pageIndex) {
                   return WhatAboutHearItem(
-                    name: controller.aboutDummyList[itemIndex].name,
-                    imageUrl: controller.aboutDummyList[itemIndex].image,
+                    item: controller.climbingResults.whatAbuoutHere[itemIndex],
                   );
                 },
                 options: CarouselOptions(
@@ -48,7 +47,7 @@ class WhatAboutHere extends GetWidget<HomeController> {
                 right: 20.0,
                 bottom: Get.size.height * 0.025,
                 child: DotsIndicator(
-                  dotsCount: controller.aboutDummyList.length,
+                  dotsCount: controller.climbingResults.whatAbuoutHere.length,
                   position: controller.carouselIndex.value,
                   decorator: const DotsDecorator(
                     color: secondaryColor,
