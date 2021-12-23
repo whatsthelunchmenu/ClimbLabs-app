@@ -1,5 +1,4 @@
 import 'package:climb_labs/app/controller/controllers.dart' show HomeController;
-import 'package:climb_labs/app/data/dummy/about_hear.dart';
 import 'package:climb_labs/app/data/model/center_model.dart';
 import 'package:climb_labs/app/route/app_pages.dart';
 import 'package:climb_labs/app/ui/theme/app_text_theme.dart';
