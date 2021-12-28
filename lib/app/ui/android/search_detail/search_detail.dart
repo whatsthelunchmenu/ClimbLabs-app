@@ -6,7 +6,7 @@ import 'package:climb_labs/app/ui/android/search_detail/components.dart'
 import 'package:climb_labs/app/ui/android/search_keyword/components.dart'
     show SearchedItem;
 import 'package:climb_labs/app/ui/theme/app_colors.dart';
-import 'package:climb_labs/app/data/dummy/location_model.dart';
+import 'package:climb_labs/app/data/model/const_location_model.dart';
 import 'package:climb_labs/app/ui/theme/app_text_theme.dart';
 import 'package:climb_labs/app/utils/const_location.dart';
 import 'package:flutter/material.dart';
@@ -21,8 +21,9 @@ class SearchDetail extends StatefulWidget {
 
 class _SearchDetailState extends State<SearchDetail> {
   final LocationItem item = Get.arguments as LocationItem;
-  late List<LocationDetail>? _locationList;
+  late List<LocationDetailState>? _locationList;
   final List<String> _selectedLocationList = [];
+  final List<String> _selectedScaleList = [];
 
   @override
   void initState() {
@@ -46,7 +47,7 @@ class _SearchDetailState extends State<SearchDetail> {
         ),
         leading: IconButton(
           onPressed: () => {
-            for (LocationDetail element in _locationList!)
+            for (LocationDetailState element in _locationList!)
               {
                 if (element.isSeleted) {element.isSeleted = false}
               },
@@ -65,9 +66,15 @@ class _SearchDetailState extends State<SearchDetail> {
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                 FilterButton(
-                    title: '세부지역',
-                    onTap: () => selectDetailLocationDialog(
-                        context, item, _locationList, _selectedLocationList)),
+                  title: '세부지역',
+                  onTap: () => selectDetailLocationDialog(
+                    context,
+                    item,
+                    _locationList,
+                    _selectedLocationList,
+                    _selectedScaleList,
+                  ),
+                ),
                 FilterButton(title: '규모', onTap: () {}),
               ],
             ),
@@ -77,12 +84,9 @@ class _SearchDetailState extends State<SearchDetail> {
                 child: ListView.builder(
                   controller: controller.locationScrollController,
                   shrinkWrap: true,
-                  itemCount: controller
-                      .climbingSearchResult.value.searchResults.length,
+                  itemCount: controller.climbingResultList.length,
                   itemBuilder: (context, index) {
-                    return SearchedItem(
-                        item: controller
-                            .climbingSearchResult.value.searchResults[index]);
+                    return SearchedItem(controller.climbingResultList[index]);
                   },
                 ),
               ),

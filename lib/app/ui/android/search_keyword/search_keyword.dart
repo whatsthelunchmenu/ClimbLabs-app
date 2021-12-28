@@ -37,12 +37,9 @@ class SearchKeyword extends StatelessWidget {
           child: ListView.builder(
             controller: controller.keywordScrollController,
             shrinkWrap: true,
-            itemCount:
-                controller.climbingSearchResult.value.searchResults.length,
+            itemCount: controller.climbingResultList.length,
             itemBuilder: (context, index) {
-              return SearchedItem(
-                  item: controller
-                      .climbingSearchResult.value.searchResults[index]);
+              return SearchedItem(controller.climbingResultList[index]);
             },
           ),
         ),

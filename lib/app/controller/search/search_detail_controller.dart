@@ -1,3 +1,4 @@
+import 'package:climb_labs/app/data/model/center_model.dart';
 import 'package:climb_labs/app/data/model/climbing_search_result.dart';
 import 'package:climb_labs/app/data/repository/repositories.dart'
     show SearchRepository;
@@ -15,6 +16,9 @@ class SearchDetailController extends GetxController {
 
   SearchDetailController({required this.location});
   final String location;
+
+  List<CenterModel> get climbingResultList =>
+      climbingSearchResult.value.searchResults;
 
   @override
   void onInit() {
@@ -47,6 +51,7 @@ class SearchDetailController extends GetxController {
       pageCount = 0;
       hasMoreLocation.value = false;
     });
+    getLocationSearch(location, sido: sido, scaleType: scaleType);
     locationScrollController.addListener(() {
       if (locationScrollController.position.pixels ==
               locationScrollController.position.maxScrollExtent &&

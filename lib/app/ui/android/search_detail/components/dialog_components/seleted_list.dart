@@ -13,7 +13,7 @@ class SeletedList extends StatelessWidget {
   }) : super(key: key);
 
   final List<String> seletedList;
-  final List<LocationDetail> locationList;
+  final List<LocationDetailState> locationList;
   final Function setState;
 
   @override

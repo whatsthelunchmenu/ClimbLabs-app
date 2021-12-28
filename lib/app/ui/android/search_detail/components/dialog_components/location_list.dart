@@ -12,7 +12,7 @@ class LocationList extends StatelessWidget {
   }) : super(key: key);
 
   final Function setState;
-  final List<LocationDetail> locationList;
+  final List<LocationDetailState> locationList;
   final List<String> selectedLocationList;
 
   @override

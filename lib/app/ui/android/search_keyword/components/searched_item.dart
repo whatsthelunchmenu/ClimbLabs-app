@@ -7,9 +7,9 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class SearchedItem extends StatelessWidget {
-  const SearchedItem({
+  const SearchedItem(
+    this.item, {
     Key? key,
-    required this.item,
   }) : super(key: key);
 
   final CenterModel item;

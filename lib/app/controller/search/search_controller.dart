@@ -1,4 +1,4 @@
-import 'package:climb_labs/app/data/dummy/location_model.dart';
+import 'package:climb_labs/app/data/model/const_location_model.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -26,7 +26,7 @@ class SearchController extends GetxController {
   }
 
   locationItemGenerator() {
-    locationDummyList.forEach((key, value) {
+    locationList.forEach((key, value) {
       locationItems.add(LocationItem(name: key, imageUrl: value));
     });
   }
