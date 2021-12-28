@@ -24,6 +24,9 @@ class SearchAppbar extends StatelessWidget {
       title: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
         child: TextFormField(
+          autofocus: false,
+          key: GlobalKey(),
+          focusNode: controller.focusNode,
           controller: controller.textEditingController,
           decoration: InputDecoration(
             prefixIcon: const Icon(
@@ -42,9 +45,11 @@ class SearchAppbar extends StatelessWidget {
             fillColor: primaryColor,
             filled: true,
           ),
-          onFieldSubmitted: (_) {
-            Get.toNamed(Routes.SEARCH_KEYWORD,
-                arguments: controller.textEditingController.text);
+          onFieldSubmitted: (searchValue) {
+            if (searchValue.isNotEmpty) {
+              Get.toNamed(Routes.SEARCH_KEYWORD,
+                  arguments: controller.textEditingController.text);
+            }
           },
         ),
       ),

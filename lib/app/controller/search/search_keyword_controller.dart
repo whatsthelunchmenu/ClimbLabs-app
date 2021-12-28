@@ -1,5 +1,6 @@
 import 'package:climb_labs/app/data/model/climbing_search_result.dart';
-import 'package:climb_labs/app/data/repository/search/search_repository.dart';
+import 'package:climb_labs/app/data/repository/repositories.dart'
+    show SearchRepository;
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 

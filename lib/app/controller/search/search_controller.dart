@@ -7,18 +7,22 @@ class SearchController extends GetxController {
   final RxList<LocationItem> locationItems = <LocationItem>[].obs;
   final RxBool hasMoreKeyword = false.obs;
   late TextEditingController textEditingController;
+  late FocusNode focusNode;
 
   @override
   void onInit() {
     super.onInit();
     locationItemGenerator();
     textEditingController = TextEditingController();
+    focusNode = FocusNode();
   }
 
   @override
   void onClose() {
     super.onClose();
+    textEditingController.clear();
     textEditingController.dispose();
+    focusNode.dispose();
   }
 
   locationItemGenerator() {
