@@ -1,21 +1,18 @@
 import 'package:climb_labs/app/controller/controllers.dart';
 import 'package:climb_labs/app/data/model/const_location_model.dart';
-import 'package:climb_labs/app/data/model/location_detail_model.dart';
-import 'package:climb_labs/app/ui/android/search_detail/components.dart'
-    show SeletedList, LocationList;
 import 'package:climb_labs/app/ui/theme/app_colors.dart';
 import 'package:climb_labs/app/ui/theme/app_text_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
-Future<dynamic> selectDetailLocationDialog(
+Future<dynamic> selectDetailScaleDialog(
   BuildContext context,
   LocationItem item,
-  List<LocationDetailState>? locationList,
   List<String> selectedLocationList,
   Map<String, bool> selectedScaleList,
 ) {
   final double deviceHeight = Get.size.height;
+
   return showDialog(
       context: context,
       builder: (context) {
@@ -25,40 +22,76 @@ Future<dynamic> selectDetailLocationDialog(
               contentPadding: const EdgeInsets.all(5),
               content: SizedBox(
                 height: deviceHeight > 700
-                    ? Get.size.height * 0.7
-                    : Get.size.height * 0.8,
+                    ? Get.size.height * 0.3
+                    : Get.size.height * 0.35,
                 child: Column(
                   children: [
                     Align(
                       alignment: Alignment.centerRight,
                       child: InkWell(
                         onTap: () {
-                          selectedLocationList.clear();
-                          for (var location in locationList!) {
-                            location.isSeleted = false;
-                          }
                           Get.back();
                         },
                         child: const Icon(Icons.cancel, color: titleColor),
                       ),
                     ),
                     Text(
-                      '세부지역 선택(${item.name})',
+                      '암장 크기',
                       style: titleTextStyle,
                     ),
-                    const SizedBox(height: 10),
-                    LocationList(
-                      locationList: locationList!,
-                      selectedLocationList: selectedLocationList,
-                      setState: setState,
+                    const SizedBox(height: 20),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          '대형 암장',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        SizedBox(
+                          height: 24,
+                          width: 24,
+                          child: Checkbox(
+                            value: selectedScaleList['big'],
+                            onChanged: (value) {
+                              setState(() {
+                                selectedScaleList['big'] = value!;
+                              });
+                            },
+                          ),
+                        ),
+                      ],
                     ),
                     const SizedBox(height: 10),
-                    SeletedList(
-                      seletedList: selectedLocationList,
-                      locationList: locationList,
-                      setState: setState,
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          '중형 암장',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        SizedBox(
+                          height: 24,
+                          width: 24,
+                          child: Checkbox(
+                            value: selectedScaleList['middle'],
+                            onChanged: (value) {
+                              setState(() {
+                                selectedScaleList['middle'] = value!;
+                              });
+                            },
+                          ),
+                        ),
+                      ],
                     ),
-                    const SizedBox(height: 10),
+                    const SizedBox(height: 20),
                     ClipRRect(
                       borderRadius: BorderRadius.circular(30),
                       child: ElevatedButton(

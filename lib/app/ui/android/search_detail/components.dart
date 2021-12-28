@@ -1,5 +1,6 @@
 export './components/filter_button.dart';
 export './components/location_filter_dialog.dart';
+export './components/scale_filter_dialog.dart';
 
 // Dialog Components
 export './components/dialog_components/location_mini_icon.dart';

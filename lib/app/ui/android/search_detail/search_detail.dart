@@ -2,7 +2,7 @@ import 'package:climb_labs/app/controller/controllers.dart'
     show SearchDetailController;
 import 'package:climb_labs/app/data/model/location_detail_model.dart';
 import 'package:climb_labs/app/ui/android/search_detail/components.dart'
-    show selectDetailLocationDialog, FilterButton;
+    show selectDetailLocationDialog, selectDetailScaleDialog, FilterButton;
 import 'package:climb_labs/app/ui/android/search_keyword/components.dart'
     show SearchedItem;
 import 'package:climb_labs/app/ui/theme/app_colors.dart';
@@ -23,7 +23,10 @@ class _SearchDetailState extends State<SearchDetail> {
   final LocationItem item = Get.arguments as LocationItem;
   late List<LocationDetailState>? _locationList;
   final List<String> _selectedLocationList = [];
-  final List<String> _selectedScaleList = [];
+  final Map<String, bool> _selectedScaleList = {
+    'big': false,
+    'middle': false,
+  };
 
   @override
   void initState() {
@@ -75,7 +78,15 @@ class _SearchDetailState extends State<SearchDetail> {
                     _selectedScaleList,
                   ),
                 ),
-                FilterButton(title: '규모', onTap: () {}),
+                FilterButton(
+                  title: '규모',
+                  onTap: () => selectDetailScaleDialog(
+                    context,
+                    item,
+                    _selectedLocationList,
+                    _selectedScaleList,
+                  ),
+                ),
               ],
             ),
             Obx(
