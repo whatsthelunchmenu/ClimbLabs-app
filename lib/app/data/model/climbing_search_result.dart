@@ -5,7 +5,7 @@ class ClimbingSearchResult {
     this.searchResults = const [],
   });
 
-  final List<CenterModel> searchResults;
+  List<CenterModel> searchResults;
 
   factory ClimbingSearchResult.fromList(List<dynamic> jsonList) {
     return ClimbingSearchResult(
