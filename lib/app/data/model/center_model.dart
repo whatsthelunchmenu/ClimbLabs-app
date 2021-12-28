@@ -17,7 +17,7 @@ class CenterModel {
     required this.street,
     required this.detailStreet,
     required this.scale,
-    required this.scaleTypes,
+    required this.scaleType,
     required this.thumbNailUrl,
     this.feature = "",
     this.advantages = const [],
@@ -33,7 +33,7 @@ class CenterModel {
   String street;
   String detailStreet;
   int scale;
-  String scaleTypes;
+  String scaleType;
   String feature;
   String thumbNailUrl;
   List<String> advantages;
@@ -49,7 +49,7 @@ class CenterModel {
         street: json["street"] ?? "",
         detailStreet: json["detailStreet"] ?? "",
         scale: json["scale"],
-        scaleTypes: json["scaleTypes"] ?? "",
+        scaleType: json["scaleType"] ?? "",
         feature: json["feature"] ?? "",
         thumbNailUrl: json["thumbNailUrl"] ?? "",
         advantages: json["advantages"] == null
@@ -72,7 +72,7 @@ class CenterModel {
         "street": street,
         "detailStreet": detailStreet,
         "scale": scale,
-        "scaleTypes": scaleTypes,
+        "scaleTypes": scaleType,
         "feature": feature,
         "thumbNailUrl": thumbNailUrl,
         "advantages": List<String>.from(advantages.map((x) => x)),
