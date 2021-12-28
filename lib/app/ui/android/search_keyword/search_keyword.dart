@@ -1,7 +1,7 @@
 import 'package:climb_labs/app/controller/controllers.dart'
     show SearchKeywordController;
 import 'package:climb_labs/app/ui/android/search_keyword/components.dart'
-    show SearchKeywordItem;
+    show SearchedItem;
 import 'package:climb_labs/app/ui/theme/app_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -40,7 +40,7 @@ class SearchKeyword extends StatelessWidget {
             itemCount:
                 controller.climbingSearchResult.value.searchResults.length,
             itemBuilder: (context, index) {
-              return SearchKeywordItem(
+              return SearchedItem(
                   item: controller
                       .climbingSearchResult.value.searchResults[index]);
             },

@@ -6,8 +6,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class SearchKeywordItem extends StatelessWidget {
-  const SearchKeywordItem({
+class SearchedItem extends StatelessWidget {
+  const SearchedItem({
     Key? key,
     required this.item,
   }) : super(key: key);

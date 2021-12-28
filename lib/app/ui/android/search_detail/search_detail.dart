@@ -1,6 +1,10 @@
+import 'package:climb_labs/app/controller/controllers.dart'
+    show SearchDetailController;
 import 'package:climb_labs/app/data/model/location_detail_model.dart';
-import 'package:climb_labs/app/ui/android/search_detail/components/filter_button.dart';
-import 'package:climb_labs/app/ui/android/search_detail/components/location_filter_dialog.dart';
+import 'package:climb_labs/app/ui/android/search_detail/components.dart'
+    show selectDetailLocationDialog, FilterButton;
+import 'package:climb_labs/app/ui/android/search_keyword/components.dart'
+    show SearchedItem;
 import 'package:climb_labs/app/ui/theme/app_colors.dart';
 import 'package:climb_labs/app/data/dummy/location_model.dart';
 import 'package:climb_labs/app/ui/theme/app_text_theme.dart';
@@ -28,6 +32,9 @@ class _SearchDetailState extends State<SearchDetail> {
 
   @override
   Widget build(BuildContext context) {
+    final SearchDetailController controller =
+        Get.put(SearchDetailController(location: item.name));
+
     return Scaffold(
       appBar: AppBar(
         elevation: 0.0,
@@ -63,7 +70,23 @@ class _SearchDetailState extends State<SearchDetail> {
                         context, item, _locationList, _selectedLocationList)),
                 FilterButton(title: '규모', onTap: () {}),
               ],
-            )
+            ),
+            Obx(
+              () => Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: ListView.builder(
+                  controller: controller.locationScrollController,
+                  shrinkWrap: true,
+                  itemCount: controller
+                      .climbingSearchResult.value.searchResults.length,
+                  itemBuilder: (context, index) {
+                    return SearchedItem(
+                        item: controller
+                            .climbingSearchResult.value.searchResults[index]);
+                  },
+                ),
+              ),
+            ),
           ],
         ),
       ),
