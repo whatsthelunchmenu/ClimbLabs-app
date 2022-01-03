@@ -22,8 +22,8 @@ Future<dynamic> selectDetailScaleDialog(
               contentPadding: const EdgeInsets.all(5),
               content: SizedBox(
                 height: deviceHeight > 700
-                    ? Get.size.height * 0.3
-                    : Get.size.height * 0.35,
+                    ? Get.size.height * 0.5
+                    : Get.size.height * 0.45,
                 child: Column(
                   children: [
                     Align(
@@ -44,6 +44,34 @@ Future<dynamic> selectDetailScaleDialog(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const Text(
+                          '전체',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        SizedBox(
+                          height: 24,
+                          width: 24,
+                          child: Checkbox(
+                            value: selectedScaleList['ALL'],
+                            onChanged: (value) {
+                              setState(() {
+                                selectedScaleList['ALL'] = value!;
+                                selectedScaleList['BIG'] = false;
+                                selectedScaleList['MIDDLE'] = false;
+                              });
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
                           '대형 암장',
                           style: TextStyle(
                             fontSize: 18,
@@ -55,10 +83,11 @@ Future<dynamic> selectDetailScaleDialog(
                           height: 24,
                           width: 24,
                           child: Checkbox(
-                            value: selectedScaleList['big'],
+                            value: selectedScaleList['BIG'],
                             onChanged: (value) {
                               setState(() {
-                                selectedScaleList['big'] = value!;
+                                selectedScaleList['ALL'] = false;
+                                selectedScaleList['BIG'] = value!;
                               });
                             },
                           ),
@@ -81,10 +110,11 @@ Future<dynamic> selectDetailScaleDialog(
                           height: 24,
                           width: 24,
                           child: Checkbox(
-                            value: selectedScaleList['middle'],
+                            value: selectedScaleList['MIDDLE'],
                             onChanged: (value) {
                               setState(() {
-                                selectedScaleList['middle'] = value!;
+                                selectedScaleList['ALL'] = false;
+                                selectedScaleList['MIDDLE'] = value!;
                               });
                             },
                           ),
@@ -107,7 +137,7 @@ Future<dynamic> selectDetailScaleDialog(
                           });
                           SearchDetailController.to.locationSearchUpdateListner(
                             item.name,
-                            sido: selectedLocationList.join(','),
+                            sidos: selectedLocationList.join(','),
                             scaleType: scaleList.join(','),
                           );
                           Get.back();

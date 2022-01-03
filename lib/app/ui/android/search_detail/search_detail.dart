@@ -24,8 +24,9 @@ class _SearchDetailState extends State<SearchDetail> {
   late List<LocationDetailState>? _locationList;
   final List<String> _selectedLocationList = [];
   final Map<String, bool> _selectedScaleList = {
-    'big': false,
-    'middle': false,
+    'ALL': true,
+    'BIG': false,
+    'MIDDLE': false,
   };
 
   @override
@@ -89,16 +90,18 @@ class _SearchDetailState extends State<SearchDetail> {
                 ),
               ],
             ),
+            const SizedBox(height: 10),
             Obx(
-              () => Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 10),
-                child: ListView.builder(
-                  controller: controller.locationScrollController,
-                  shrinkWrap: true,
-                  itemCount: controller.climbingResultList.length,
-                  itemBuilder: (context, index) {
-                    return SearchedItem(controller.climbingResultList[index]);
-                  },
+              () => Expanded(
+                child: Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: ListView.builder(
+                    controller: controller.locationScrollController,
+                    itemCount: controller.climbingResultList.length,
+                    itemBuilder: (context, index) {
+                      return SearchedItem(controller.climbingResultList[index]);
+                    },
+                  ),
                 ),
               ),
             ),

@@ -74,7 +74,7 @@ Future<dynamic> selectDetailLocationDialog(
                           });
                           SearchDetailController.to.locationSearchUpdateListner(
                             item.name,
-                            sido: selectedLocationList.join(','),
+                            sidos: selectedLocationList.join(','),
                             scaleType: scaleList.join(','),
                           );
                           Get.back();

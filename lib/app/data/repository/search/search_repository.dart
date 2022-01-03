@@ -34,18 +34,19 @@ class SearchRepository {
   }
 
   Future getLocationSearch(String city,
-      {String sido = "",
+      {String sidos = "",
       String scaleType = "",
       int page = 1,
       int size = 10}) async {
     try {
       final Response response =
           await _dio.get('/search/$city/posts', queryParameters: {
-        'sido': sido,
+        'sidos': sidos,
         'scaleType': scaleType,
         'page': page,
         'size': size,
       });
+
       if (response.statusCode == 200) {
         LoggerController.to.debug(
             '[getLocationSearch] Success to get search data for keyword');

@@ -46,28 +46,33 @@ class SearchDetailController extends GetxController {
   }
 
   locationSearchUpdateListner(String location,
-      {String sido = "ALL", String scaleType = "ALL"}) async {
-    locationScrollController.removeListener(() {
-      pageCount = 0;
-      hasMoreLocation.value = false;
+      {String sidos = "", String scaleType = ""}) async {
+    locationScrollController.removeListener(() {});
+    pageCount = 1;
+    hasMoreLocation.value = false;
+    climbingSearchResult.update((climbing) {
+      climbing!.searchResults.clear();
     });
-    getLocationSearch(location, sido: sido, scaleType: scaleType);
+    getLocationSearch(location, sidos: sidos, scaleType: scaleType);
     locationScrollController.addListener(() {
       if (locationScrollController.position.pixels ==
               locationScrollController.position.maxScrollExtent &&
           hasMoreLocation.value) {
-        getLocationSearch(location, sido: sido, scaleType: scaleType);
+        getLocationSearch(location, sidos: sidos, scaleType: scaleType);
       }
     });
   }
 
   getLocationSearch(String location,
-      {String sido = "ALL",
+      {String sidos = "",
       String scaleType = "ALL",
       int page = 1,
       int size = 10}) async {
-    final ClimbingSearchResult result =
-        await repository.getLocationSearch(location, page: page, size: size);
+    final ClimbingSearchResult result = await repository.getLocationSearch(
+        location,
+        sidos: sidos,
+        scaleType: scaleType,
+        page: pageCount);
     if (result.searchResults.isNotEmpty) {
       climbingSearchResult.update((climbing) {
         climbing!.searchResults.addAll(result.searchResults);
