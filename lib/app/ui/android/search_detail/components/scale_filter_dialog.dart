@@ -22,7 +22,7 @@ Future<dynamic> selectDetailScaleDialog(
               contentPadding: const EdgeInsets.all(5),
               content: SizedBox(
                 height: deviceHeight > 700
-                    ? Get.size.height * 0.5
+                    ? Get.size.height * 0.35
                     : Get.size.height * 0.45,
                 child: Column(
                   children: [
