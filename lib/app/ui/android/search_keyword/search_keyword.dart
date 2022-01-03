@@ -32,17 +32,19 @@ class SearchKeyword extends StatelessWidget {
         backgroundColor: primaryColor,
       ),
       body: Obx(
-        () => Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 10),
-          child: ListView.builder(
-            controller: controller.keywordScrollController,
-            shrinkWrap: true,
-            itemCount: controller.climbingResultList.length,
-            itemBuilder: (context, index) {
-              return SearchedItem(controller.climbingResultList[index]);
-            },
-          ),
-        ),
+        () => controller.climbingResultList.isNotEmpty
+            ? Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 10),
+                child: ListView.builder(
+                  controller: controller.keywordScrollController,
+                  shrinkWrap: true,
+                  itemCount: controller.climbingResultList.length,
+                  itemBuilder: (context, index) {
+                    return SearchedItem(controller.climbingResultList[index]);
+                  },
+                ),
+              )
+            : const Center(child: CircularProgressIndicator()),
       ),
     );
   }

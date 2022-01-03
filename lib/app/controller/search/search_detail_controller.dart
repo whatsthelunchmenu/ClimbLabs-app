@@ -12,6 +12,8 @@ class SearchDetailController extends GetxController {
   late SearchRepository repository;
   Rx<ClimbingSearchResult> climbingSearchResult =
       ClimbingSearchResult(searchResults: []).obs;
+
+  RxBool isLoading = false.obs;
   int pageCount = 1;
 
   SearchDetailController({required this.location});
@@ -68,11 +70,13 @@ class SearchDetailController extends GetxController {
       String scaleType = "ALL",
       int page = 1,
       int size = 10}) async {
+    isLoading.value = true;
     final ClimbingSearchResult result = await repository.getLocationSearch(
         location,
         sidos: sidos,
         scaleType: scaleType,
         page: pageCount);
+
     if (result.searchResults.isNotEmpty) {
       climbingSearchResult.update((climbing) {
         climbing!.searchResults.addAll(result.searchResults);
@@ -82,5 +86,6 @@ class SearchDetailController extends GetxController {
     } else {
       hasMoreLocation.value = false;
     }
+    isLoading.value = false;
   }
 }

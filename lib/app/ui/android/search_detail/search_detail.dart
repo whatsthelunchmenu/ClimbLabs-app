@@ -92,18 +92,22 @@ class _SearchDetailState extends State<SearchDetail> {
             ),
             const SizedBox(height: 10),
             Obx(
-              () => Expanded(
-                child: Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: ListView.builder(
-                    controller: controller.locationScrollController,
-                    itemCount: controller.climbingResultList.length,
-                    itemBuilder: (context, index) {
-                      return SearchedItem(controller.climbingResultList[index]);
-                    },
-                  ),
-                ),
-              ),
+              () => controller.climbingResultList.isNotEmpty
+                  ? Expanded(
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 10),
+                        child: ListView.builder(
+                          controller: controller.locationScrollController,
+                          itemCount: controller.climbingResultList.length,
+                          itemBuilder: (context, index) {
+                            return SearchedItem(
+                                controller.climbingResultList[index]);
+                          },
+                        ),
+                      ),
+                    )
+                  : const Expanded(
+                      child: Center(child: CircularProgressIndicator())),
             ),
           ],
         ),
