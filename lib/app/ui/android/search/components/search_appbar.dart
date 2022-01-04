@@ -37,7 +37,7 @@ class SearchAppbar extends StatelessWidget {
             hintText: '암장 검색',
             hintStyle: hintTextStyle,
             contentPadding:
-                const EdgeInsets.only(left: 15, top: 10, bottom: 10),
+                const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
             border: UnderlineInputBorder(
               borderRadius: BorderRadius.circular(15),
               borderSide: BorderSide.none,
