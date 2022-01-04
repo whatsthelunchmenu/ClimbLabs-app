@@ -1,4 +1,5 @@
-import 'package:climb_labs/app/data/dummy/location_model.dart';
+import 'package:climb_labs/app/controller/search/search_controller.dart';
+import 'package:climb_labs/app/data/model/const_location_model.dart';
 import 'package:climb_labs/app/route/app_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -15,6 +16,7 @@ class LocationSearchItem extends StatelessWidget {
   Widget build(BuildContext context) {
     return InkWell(
       onTap: () {
+        SearchController.to.focusNode.unfocus();
         Get.toNamed(Routes.SEARCH_DETAIL, arguments: item);
       },
       child: Container(

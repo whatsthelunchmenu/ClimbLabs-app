@@ -10,7 +10,9 @@ import Foundation
     _ application: UIApplication,
     didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?
   ) -> Bool {
-      GMSServices.provideAPIKey(Bundle.main.infoDictionary["GOOGLE_MAP_KEY"])
+      let url = Bundle.main.object(forInfoDictionaryKey: "GOOGLE_MAP_KEY") as! String   
+
+      GMSServices.provideAPIKey(url)
     GeneratedPluginRegistrant.register(with: self)
     return super.application(application, didFinishLaunchingWithOptions: launchOptions)
   }

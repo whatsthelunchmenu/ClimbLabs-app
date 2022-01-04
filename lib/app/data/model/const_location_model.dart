@@ -8,7 +8,7 @@ class LocationItem {
   String imageUrl;
 }
 
-final Map<String, String> locationDummyList = {
+final Map<String, String> locationList = {
   "서울": "Seoul.jpeg",
   "경기": "Gyeonggi.jpeg",
   "인천": "Incheon.jpeg",

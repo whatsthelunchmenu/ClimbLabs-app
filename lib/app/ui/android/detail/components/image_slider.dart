@@ -67,8 +67,8 @@ class ImageSlider extends GetWidget<DetailController> {
                     '${controller.sliderCurrentIndex.value + 1} / ${images.length}',
                     style: TextStyle(
                       color: Colors.white,
-                      fontSize: Get.size.width * 0.04,
-                      fontWeight: FontWeight.w500,
+                      fontSize: Get.size.width * 0.035,
+                      fontWeight: FontWeight.w300,
                     ),
                   ),
                 ),

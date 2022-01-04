@@ -32,4 +32,33 @@ class SearchRepository {
           .error('[getKeywordSearch] dioError : ${error.message}');
     }
   }
+
+  Future getLocationSearch(String city,
+      {String sidos = "",
+      String scaleType = "",
+      int page = 1,
+      int size = 10}) async {
+    try {
+      final Response response =
+          await _dio.get('/search/$city/posts', queryParameters: {
+        'sidos': sidos,
+        'scaleType': scaleType,
+        'page': page,
+        'size': size,
+      });
+
+      if (response.statusCode == 200) {
+        LoggerController.to.debug(
+            '[getLocationSearch] Success to get search data for keyword');
+        return ClimbingSearchResult.fromList(response.data);
+      } else {
+        LoggerController.to.error(
+            '[getLocationSearch] fail to get data : ${response.statusMessage}');
+        return ClimbingSearchResult();
+      }
+    } on DioError catch (error) {
+      LoggerController.to
+          .error('[getLocationSearch] dioError : ${error.message}');
+    }
+  }
 }

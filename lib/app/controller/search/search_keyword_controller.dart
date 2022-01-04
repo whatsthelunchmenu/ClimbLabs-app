@@ -1,3 +1,4 @@
+import 'package:climb_labs/app/data/model/center_model.dart';
 import 'package:climb_labs/app/data/model/climbing_search_result.dart';
 import 'package:climb_labs/app/data/repository/repositories.dart'
     show SearchRepository;
@@ -14,6 +15,9 @@ class SearchKeywordController extends GetxController {
 
   SearchKeywordController({this.keyword = ""});
   final String keyword;
+
+  List<CenterModel> get climbingResultList =>
+      climbingSearchResult.value.searchResults;
 
   @override
   void onInit() {

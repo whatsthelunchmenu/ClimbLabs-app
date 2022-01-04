@@ -1,1 +1,1 @@
-export './components/search_keyword_item.dart';
+export './components/searched_item.dart';
