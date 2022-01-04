@@ -48,3 +48,7 @@ pubspec.lock
 google-services.json
 key.jks
 *.env
+
+#IOS
+/ios/Flutter/Debug.xcconfig
+/ios/Flutter/Release.xcconfig
