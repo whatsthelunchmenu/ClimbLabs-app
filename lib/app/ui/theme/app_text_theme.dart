@@ -19,8 +19,8 @@ final TextStyle titleTextStyle = GoogleFonts.jua(
   color: titleColor,
 );
 
-const TextStyle baseTextStyle = TextStyle(
-  fontSize: 15,
+final TextStyle baseTextStyle = TextStyle(
+  fontSize: Get.size.width * 0.04,
   fontWeight: FontWeight.w500,
   color: Colors.black,
 );
