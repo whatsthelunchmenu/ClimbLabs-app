@@ -47,7 +47,7 @@ class HomeController extends GetxController {
 
   getItsThisBig({
     int limit = 5,
-    List<String> scaleType = const ['BIG', 'MIDDLE'],
+    List<String> scaleType = const ['BIG', 'MIDDLE', 'SMALL'],
   }) async {
     final ClimbingResults? result =
         await repository.getItsThisBig(limit, scaleType);

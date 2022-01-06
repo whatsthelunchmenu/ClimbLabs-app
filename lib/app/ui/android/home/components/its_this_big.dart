@@ -21,12 +21,12 @@ class ItsThisBig extends GetWidget<HomeController> {
         ),
         Center(
           child: DefaultTabController(
-            length: 2,
+            length: 3,
             initialIndex: 0,
             child: Column(
               children: [
                 SizedBox(
-                  width: Get.size.width * 0.5,
+                  width: Get.size.width * 0.75,
                   child: TabBar(
                     indicatorSize: TabBarIndicatorSize.label,
                     indicatorColor: primaryColor,
@@ -35,6 +35,7 @@ class ItsThisBig extends GetWidget<HomeController> {
                     indicatorWeight: 4,
                     unselectedLabelColor: const Color(0xFF979797),
                     tabs: const <Tab>[
+                      Tab(text: '소형 암장'),
                       Tab(text: '중형 암장'),
                       Tab(text: '대형 암장'),
                     ],
@@ -47,6 +48,16 @@ class ItsThisBig extends GetWidget<HomeController> {
                     () => TabBarView(
                       physics: const NeverScrollableScrollPhysics(),
                       children: [
+                        ListView.builder(
+                          itemCount:
+                          controller.climbingResults.smallSize.length,
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) {
+                            return ItsThisBigItem(
+                                item: controller
+                                    .climbingResults.smallSize[index]);
+                          },
+                        ),
                         ListView.builder(
                           itemCount:
                               controller.climbingResults.middleSize.length,

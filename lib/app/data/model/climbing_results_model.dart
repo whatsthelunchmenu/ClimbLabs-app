@@ -26,6 +26,9 @@ class ClimbingResults {
       middleSize: List.from(response['middles'])
           .map((e) => CenterModel.fromJson(e))
           .toList(),
+      smallSize:  List.from(response['smalls'])
+          .map((e) => CenterModel.fromJson(e))
+          .toList(),
     );
   }
 
