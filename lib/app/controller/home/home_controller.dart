@@ -36,6 +36,7 @@ class HomeController extends GetxController {
 
   getWhatAboutHere({int limit = 4}) async {
     final ClimbingResults? result = await repository.getWhatAboutHere(limit);
+    await Future.delayed(const Duration(seconds: 1));
 
     if (result != null && result.whatAbuoutHere.isNotEmpty) {
       _climbingResults.update((climbing) {

@@ -19,8 +19,10 @@ final TextStyle titleTextStyle = GoogleFonts.jua(
   color: titleColor,
 );
 
-final TextStyle baseTextStyle = GoogleFonts.jua(
-  fontSize: 16,
+final TextStyle baseTextStyle = TextStyle(
+  fontSize: Get.size.width * 0.04,
+  fontWeight: FontWeight.w500,
+  color: Colors.black,
 );
 
 final TextStyle smallTitleColorTextStyle = GoogleFonts.jua(
@@ -44,6 +46,6 @@ final TextStyle itemSizeTextStyle = GoogleFonts.jua(
 );
 
 final TextStyle hintTextStyle = GoogleFonts.jua(
-  fontSize: 20,
+  fontSize: 18,
   color: Colors.grey,
 );

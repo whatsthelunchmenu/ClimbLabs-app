@@ -37,7 +37,7 @@ class LocationSearchItem extends StatelessWidget {
             child: Text(
               item.name,
               style: GoogleFonts.jua(
-                fontSize: 22,
+                fontSize: 20,
                 color: Colors.white,
               ),
               // textAlign: TextAlign.left,

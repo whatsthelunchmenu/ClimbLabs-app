@@ -61,7 +61,7 @@ class InformationList extends StatelessWidget {
                 children: List.generate(
                   centerItem.advantages.length,
                   (index) => Text(
-                    centerItem.advantages[index],
+                    "• ${centerItem.advantages[index]}",
                     style: baseTextStyle,
                   ),
                 ),
@@ -80,7 +80,7 @@ class InformationList extends StatelessWidget {
                 children: List.generate(
                   centerItem.disAdvantages.length,
                   (index) => Text(
-                    centerItem.disAdvantages[index],
+                    "• ${centerItem.disAdvantages[index]}",
                     style: baseTextStyle,
                   ),
                 ),
@@ -93,7 +93,11 @@ class InformationList extends StatelessWidget {
               Text("특징", style: itemTitleTextStyle),
               const SizedBox(width: 20),
               DescriptionBox(
-                  child: Text(centerItem.feature, style: baseTextStyle)),
+                child: Text(
+                  centerItem.feature,
+                  style: baseTextStyle,
+                ),
+              ),
             ],
           ),
           const SizedBox(height: 15),

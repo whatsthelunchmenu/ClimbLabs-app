@@ -51,9 +51,7 @@ class SearchedItem extends StatelessWidget {
                       children: [
                         AutoSizeText(
                           item.title,
-                          style: GoogleFonts.jua(
-                            fontWeight: FontWeight.w700,
-                          ),
+                          style: GoogleFonts.jua(),
                           maxFontSize: 24,
                           minFontSize: 22,
                         ),
@@ -82,7 +80,7 @@ class SearchedItem extends StatelessWidget {
                               child: Text(
                                 "${Utils.convertScaleTypeToString(item.scaleType)} 암장",
                                 style: GoogleFonts.jua(
-                                    fontWeight: FontWeight.w600),
+                                    fontWeight: FontWeight.w500),
                               ),
                             ),
                             const SizedBox(width: 10),
@@ -99,7 +97,7 @@ class SearchedItem extends StatelessWidget {
                                   Text(
                                     "${Utils.convertLevelToString(item.level)} 난이도",
                                     style: GoogleFonts.jua(
-                                        fontWeight: FontWeight.w600),
+                                        fontWeight: FontWeight.w500),
                                   ),
                                 ],
                               ),

@@ -21,37 +21,36 @@ class SearchAppbar extends StatelessWidget {
       automaticallyImplyLeading: false,
       floating: true,
       snap: true,
-      title: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 15),
-        child: TextFormField(
-          autofocus: false,
-          key: GlobalKey(),
-          focusNode: controller.focusNode,
-          controller: controller.textEditingController,
-          decoration: InputDecoration(
-            prefixIcon: const Icon(
-              CupertinoIcons.search,
-              color: Colors.grey,
-              size: 28,
-            ),
-            hintText: '암장 검색',
-            hintStyle: hintTextStyle,
-            contentPadding:
-                const EdgeInsets.only(left: 15, top: 10, bottom: 10),
-            border: UnderlineInputBorder(
-              borderRadius: BorderRadius.circular(15),
-              borderSide: BorderSide.none,
-            ),
-            fillColor: primaryColor,
-            filled: true,
+      titleSpacing: 0.0,
+      toolbarHeight: Get.size.height * 0.1,
+      title: TextFormField(
+        autofocus: false,
+        // key: GlobalKey(),
+        focusNode: controller.focusNode,
+        controller: controller.textEditingController,
+        decoration: InputDecoration(
+          prefixIcon: const Icon(
+            CupertinoIcons.search,
+            color: Colors.grey,
+            size: 28,
           ),
-          onFieldSubmitted: (searchValue) {
-            if (searchValue.isNotEmpty) {
-              Get.toNamed(Routes.SEARCH_KEYWORD,
-                  arguments: controller.textEditingController.text);
-            }
-          },
+          hintText: '암장 검색',
+          hintStyle: hintTextStyle,
+          contentPadding:
+              const EdgeInsets.symmetric(vertical: 15, horizontal: 10),
+          border: UnderlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+            borderSide: BorderSide.none,
+          ),
+          fillColor: primaryColor,
+          filled: true,
         ),
+        onFieldSubmitted: (searchValue) {
+          if (searchValue.isNotEmpty) {
+            Get.toNamed(Routes.SEARCH_KEYWORD,
+                arguments: controller.textEditingController.text);
+          }
+        },
       ),
     );
   }
