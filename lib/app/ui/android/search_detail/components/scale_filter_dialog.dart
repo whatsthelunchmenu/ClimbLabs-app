@@ -22,8 +22,8 @@ Future<dynamic> selectDetailScaleDialog(
               contentPadding: const EdgeInsets.all(5),
               content: SizedBox(
                 height: deviceHeight > 700
-                    ? Get.size.height * 0.35
-                    : Get.size.height * 0.45,
+                    ? Get.size.height * 0.4
+                    : Get.size.height * 0.5,
                 child: Column(
                   children: [
                     Align(
@@ -121,7 +121,35 @@ Future<dynamic> selectDetailScaleDialog(
                         ),
                       ],
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 10),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const Text(
+                          '소형 암장',
+                          style: TextStyle(
+                            fontSize: 18,
+                            fontWeight: FontWeight.w700,
+                          ),
+                        ),
+                        const SizedBox(width: 10),
+                        SizedBox(
+                          height: 24,
+                          width: 24,
+                          child: Checkbox(
+                            value: selectedScaleList['SMALL'],
+                            onChanged: (value) {
+                              setState(() {
+                                selectedScaleList['ALL'] = false;
+                                selectedScaleList['SMALL'] = value!;
+                              });
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                    // const SizedBox(height: 20),
+                    const Spacer(flex: 1),
                     ClipRRect(
                       borderRadius: BorderRadius.circular(30),
                       child: ElevatedButton(

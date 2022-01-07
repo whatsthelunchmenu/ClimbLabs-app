@@ -40,8 +40,8 @@ final TextStyle headerTextStyle = GoogleFonts.stylish(
     fontWeight: FontWeight.w900,
     color: titleColor);
 
-final TextStyle itemSizeTextStyle = GoogleFonts.jua(
-  fontSize: 20,
+TextStyle itemSizeTextStyle = GoogleFonts.jua(
+  fontSize: Get.size.width * 0.05,
   color: Colors.black,
 );
 

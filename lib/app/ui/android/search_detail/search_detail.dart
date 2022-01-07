@@ -27,6 +27,7 @@ class _SearchDetailState extends State<SearchDetail> {
     'ALL': true,
     'BIG': false,
     'MIDDLE': false,
+    'SMALL' : false,
   };
 
   @override
