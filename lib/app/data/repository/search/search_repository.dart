@@ -42,7 +42,7 @@ class SearchRepository {
       final Response response =
           await _dio.get('/search/$city/posts', queryParameters: {
         'sidos': sidos,
-        'scaleType': scaleType,
+        'scaleTypes': scaleType,
         'page': page,
         'size': size,
       });
